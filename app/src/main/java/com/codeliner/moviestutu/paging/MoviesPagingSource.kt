@@ -31,7 +31,7 @@ class MoviesPagingSource(
 
         val offset = params.key ?: MOVIES_STARTING_PAGE_OFFSET
         return try {
-            val response = apiService.getMovieReview(offset) //загрузить данные
+            val response = apiService.getMovieReview() //загрузить данные
             val movies = response.items
             val nextOffset = if (movies.isEmpty()) {
                 null

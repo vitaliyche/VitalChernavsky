@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.Flow
 import retrofit2.Response
 
 class RetrofitRepository {
-    suspend fun getMovies(): Response<GitHubSearch> { //pageIndex: Int
+    suspend fun getMovies(): GitHubSearch { //pageIndex: Int
         return RetrofitInstance.api.getMovieReview()
     }
 

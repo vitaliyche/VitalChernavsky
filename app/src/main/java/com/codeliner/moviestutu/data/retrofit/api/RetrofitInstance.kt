@@ -3,7 +3,7 @@ package com.codeliner.moviestutu.data.retrofit.api
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-private const val BASE_URL = "https://api.nytimes.com/"
+private const val BASE_URL = "https://api.github.com/"
 
 object RetrofitInstance {
     private val retrofit by lazy {

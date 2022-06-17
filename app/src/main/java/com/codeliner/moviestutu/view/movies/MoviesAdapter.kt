@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.codeliner.moviestutu.R
@@ -22,9 +23,8 @@ val callback = object : DiffUtil.ItemCallback<Item>() {
     } // есть ли различия внутри элемента
 }
 
-class MoviesAdapter : PagingDataAdapter<Item, MoviesAdapter.MyViewHolder>(callback) {
+class MoviesAdapter : ListAdapter<Item, MoviesAdapter.MyViewHolder>(callback) {
 
-    private var moviesList = emptyList<Item>()
     var listener: ((Item) -> Unit)? = null
 
     class MyViewHolder(view: View) : RecyclerView.ViewHolder(view)
@@ -41,7 +41,7 @@ class MoviesAdapter : PagingDataAdapter<Item, MoviesAdapter.MyViewHolder>(callba
         val context = holder.itemView.context
 
         holder.itemView.setOnClickListener {
-            listener?.invoke(moviesList[position])
+            listener?.invoke(item)
         }
 
         Glide.with(context)
@@ -49,16 +49,6 @@ class MoviesAdapter : PagingDataAdapter<Item, MoviesAdapter.MyViewHolder>(callba
             .centerCrop()
             .placeholder(R.drawable.ic_launcher_foreground)
             .into(holder.itemView.item_img_movie)
-    }
-
-    override fun getItemCount(): Int {
-        return moviesList.size
-    }
-
-    @SuppressLint("NotifyDataSetChanged")
-    fun setList(list: List<Item>) {
-        moviesList = list
-        notifyDataSetChanged()
     }
 
 } //в PagingDataAdapter уже зашит список, не нужно создавать и обновлять. Обновляется через submitData

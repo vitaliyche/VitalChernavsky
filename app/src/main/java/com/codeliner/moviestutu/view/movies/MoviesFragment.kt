@@ -11,8 +11,10 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.codeliner.moviestutu.R
 import com.codeliner.moviestutu.databinding.FragmentMoviesBinding
+import com.codeliner.moviestutu.model.GitHubSearch
 import com.codeliner.moviestutu.model.Item
 import kotlinx.coroutines.flow.collectLatest
+import retrofit2.Response
 
 class MoviesFragment : Fragment() {
 
@@ -20,6 +22,7 @@ class MoviesFragment : Fragment() {
     private val binding get() = moviesBinding!!
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: MoviesAdapter
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,13 +44,11 @@ class MoviesFragment : Fragment() {
         }
 
         recyclerView.adapter = adapter
-
-        viewModel.myMovies.observe(viewLifecycleOwner) { response ->
-            response.body()?.let { adapter.setList(it) }
+        viewModel.myMovies.observe(viewLifecycleOwner) {
+                adapter.submitList(it.items)
         }
 
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -61,11 +62,11 @@ class MoviesFragment : Fragment() {
         recyclerView = binding.moviesRv
         recyclerView.adapter = adapter
 
-        lifecycleScope.launchWhenCreated {
-            viewModel.pagingMoviesFlow.collectLatest {
-                adapter.submitData(it)
-            }
-        }
+//        lifecycleScope.launchWhenCreated {
+//            viewModel.pagingMoviesFlow.collectLatest {
+//                adapter.submitList(it)
+//            }
+//        }
     }
 
     override fun onDestroyView() {
