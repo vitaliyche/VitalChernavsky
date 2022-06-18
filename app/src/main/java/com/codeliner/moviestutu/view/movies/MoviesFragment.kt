@@ -73,4 +73,11 @@ class MoviesFragment : Fragment() {
         super.onDestroyView()
         moviesBinding = null
     }
+
+    companion object {
+        private var IS_HABITS_RESET = false //если галочки сброшены
+
+        @JvmStatic //чтобы была только одна инстанция фрагмента, если пытаемся запустить несколько раз
+        fun newInstance() = MoviesFragment()
+    }
 }
