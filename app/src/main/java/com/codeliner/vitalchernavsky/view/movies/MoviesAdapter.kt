@@ -1,16 +1,14 @@
-package com.codeliner.moviestutu.view.movies
+package com.codeliner.vitalchernavsky.view.movies
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.codeliner.moviestutu.R
-import com.codeliner.moviestutu.model.Item
+import com.codeliner.vitalchernavsky.R
+import com.codeliner.vitalchernavsky.model.Item
 import kotlinx.android.synthetic.main.item_movies.view.*
 
 val callback = object : DiffUtil.ItemCallback<Item>() {

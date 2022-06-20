@@ -1,16 +1,15 @@
-package com.codeliner.moviestutu.view.movies
+package com.codeliner.vitalchernavsky.view.movies
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
-import com.codeliner.moviestutu.data.retrofit.RetrofitRepository
-import com.codeliner.moviestutu.model.GitHubSearch
+import com.codeliner.vitalchernavsky.data.retrofit.RetrofitRepository
+import com.codeliner.vitalchernavsky.model.GitHubSearch
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
-import retrofit2.Response
 
 class MoviesViewModel : ViewModel() {
     private val repository = RetrofitRepository()

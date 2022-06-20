@@ -1,4 +1,4 @@
-package com.codeliner.moviestutu.data.retrofit.api
+package com.codeliner.vitalchernavsky.data.retrofit.api
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

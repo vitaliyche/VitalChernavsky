@@ -1,10 +1,10 @@
-package com.codeliner.moviestutu
+package com.codeliner.vitalchernavsky
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import com.codeliner.moviestutu.databinding.ActivityMainBinding
+import com.codeliner.vitalchernavsky.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     private var moviesBinding: ActivityMainBinding? = null

@@ -1,4 +1,4 @@
-package com.codeliner.moviestutu.model
+package com.codeliner.vitalchernavsky.model
 
 data class License(
     val key: String,

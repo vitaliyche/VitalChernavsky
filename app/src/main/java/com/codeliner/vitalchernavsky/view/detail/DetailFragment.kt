@@ -1,4 +1,4 @@
-package com.codeliner.moviestutu.view.detail
+package com.codeliner.vitalchernavsky.view.detail
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -9,8 +9,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
-import com.codeliner.moviestutu.R
-import com.codeliner.moviestutu.model.Item
+import com.codeliner.vitalchernavsky.R
+import com.codeliner.vitalchernavsky.model.Item
 import kotlinx.android.synthetic.main.fragment_detail.view.*
 
 class DetailFragment : Fragment() {

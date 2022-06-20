@@ -1,4 +1,4 @@
-package com.codeliner.moviestutu.view.splash
+package com.codeliner.vitalchernavsky.view.splash
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
-import com.codeliner.moviestutu.R
+import com.codeliner.vitalchernavsky.R
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay

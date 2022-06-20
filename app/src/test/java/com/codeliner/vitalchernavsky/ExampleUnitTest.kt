@@ -1,4 +1,4 @@
-package com.codeliner.moviestutu
+package com.codeliner.vitalchernavsky
 
 import org.junit.Assert.assertEquals
 import org.junit.Test

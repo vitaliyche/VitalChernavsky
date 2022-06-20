@@ -1,14 +1,14 @@
-package com.codeliner.moviestutu.paging
+package com.codeliner.vitalchernavsky.paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.codeliner.moviestutu.data.retrofit.api.ApiService
-import com.codeliner.moviestutu.model.Item
+import com.codeliner.vitalchernavsky.data.retrofit.api.ApiService
+import com.codeliner.vitalchernavsky.model.Item
 import retrofit2.HttpException
 import java.io.IOException
 
 @Suppress("UNREACHABLE_CODE")
-class MoviesPagingSource(
+class GithubPagingSource(
     private val apiService: ApiService
 ) : PagingSource<Int, Item>() {
 

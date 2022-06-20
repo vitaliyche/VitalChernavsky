@@ -1,4 +1,4 @@
-package com.codeliner.moviestutu.view.movies
+package com.codeliner.vitalchernavsky.view.movies
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,15 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.codeliner.moviestutu.R
-import com.codeliner.moviestutu.databinding.FragmentMoviesBinding
-import com.codeliner.moviestutu.model.GitHubSearch
-import com.codeliner.moviestutu.model.Item
-import kotlinx.coroutines.flow.collectLatest
-import retrofit2.Response
+import com.codeliner.vitalchernavsky.R
+import com.codeliner.vitalchernavsky.databinding.FragmentMoviesBinding
 
 class MoviesFragment : Fragment() {
 
@@ -32,7 +27,6 @@ class MoviesFragment : Fragment() {
         moviesBinding = FragmentMoviesBinding.inflate(layoutInflater, container, false)
 
         val viewModel = ViewModelProvider(this)[MoviesViewModel::class.java]
-        val view = inflater.inflate(R.layout.fragment_movies, container, false)
 
         recyclerView = binding.moviesRv
         adapter = MoviesAdapter()
@@ -49,7 +43,7 @@ class MoviesFragment : Fragment() {
         }
 
         return binding.root
-    }
+    } // onCreateView
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -61,12 +55,6 @@ class MoviesFragment : Fragment() {
         viewModel.getMovies()
         recyclerView = binding.moviesRv
         recyclerView.adapter = adapter
-
-//        lifecycleScope.launchWhenCreated {
-//            viewModel.pagingMoviesFlow.collectLatest {
-//                adapter.submitList(it)
-//            }
-//        }
     }
 
     override fun onDestroyView() {
@@ -74,10 +62,4 @@ class MoviesFragment : Fragment() {
         moviesBinding = null
     }
 
-    companion object {
-        private var IS_HABITS_RESET = false //если галочки сброшены
-
-        @JvmStatic //чтобы была только одна инстанция фрагмента, если пытаемся запустить несколько раз
-        fun newInstance() = MoviesFragment()
-    }
 }

@@ -1,4 +1,4 @@
-package com.codeliner.moviestutu.model
+package com.codeliner.vitalchernavsky.model
 
 import java.io.Serializable
 
