@@ -25,30 +25,33 @@ class MoviesFragment : Fragment() {
     ): View {
 
         moviesBinding = FragmentMoviesBinding.inflate(layoutInflater, container, false)
-
         val viewModel = ViewModelProvider(this)[MoviesViewModel::class.java]
-
         recyclerView = binding.moviesRv
         adapter = MoviesAdapter()
+
         adapter.listener = {
             val bundle = Bundle()
             bundle.putSerializable("model", it)
+            // TODO: использовать safeargs... Navigation.findNavController(view).navigate(MoviesFragmentDirections.actionMoviesFragmentToDetailFragment())
             findNavController().navigate(R.id.action_moviesFragment_to_detailFragment, bundle)
-            //Navigation.findNavController(view).navigate(MoviesFragmentDirections.actionMoviesFragmentToDetailFragment())
         }
 
         recyclerView.adapter = adapter
+
         viewModel.myMovies.observe(viewLifecycleOwner) {
                 adapter.submitList(it.items)
         }
 
         return binding.root
+
     } // onCreateView
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         init()
     }
+
 
     private fun init() {
         val viewModel = ViewModelProvider(this)[MoviesViewModel::class.java]
@@ -56,6 +59,7 @@ class MoviesFragment : Fragment() {
         recyclerView = binding.moviesRv
         recyclerView.adapter = adapter
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

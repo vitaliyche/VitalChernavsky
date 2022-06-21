@@ -12,6 +12,7 @@ import com.codeliner.vitalchernavsky.model.Item
 import kotlinx.android.synthetic.main.item_movies.view.*
 
 val callback = object : DiffUtil.ItemCallback<Item>() {
+
     override fun areItemsTheSame(oldItem: Item, newItem: Item): Boolean {
         return oldItem.git_url == newItem.git_url
     } //это точно такой же элемент или нет
@@ -19,11 +20,15 @@ val callback = object : DiffUtil.ItemCallback<Item>() {
     override fun areContentsTheSame(oldItem: Item, newItem: Item): Boolean {
         return oldItem == newItem
     } // есть ли различия внутри элемента
-}
+
+} // callback
+
 
 class MoviesAdapter : ListAdapter<Item, MoviesAdapter.MyViewHolder>(callback) {
 
+    private var catalogueList = emptyList<Item>()
     var listener: ((Item) -> Unit)? = null
+
 
     class MyViewHolder(view: View) : RecyclerView.ViewHolder(view)
 
@@ -33,6 +38,7 @@ class MoviesAdapter : ListAdapter<Item, MoviesAdapter.MyViewHolder>(callback) {
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+
         val item = getItem(position) ?: return
         holder.itemView.item_tv_title.text = item.name
         holder.itemView.item_tv_description.text = item.description
@@ -47,6 +53,9 @@ class MoviesAdapter : ListAdapter<Item, MoviesAdapter.MyViewHolder>(callback) {
             .centerCrop()
             .placeholder(R.drawable.ic_launcher_foreground)
             .into(holder.itemView.item_img_movie)
-    }
+
+    } // onBindViewHolder
+
+
 
 } //в PagingDataAdapter уже зашит список, не нужно создавать и обновлять. Обновляется через submitData
