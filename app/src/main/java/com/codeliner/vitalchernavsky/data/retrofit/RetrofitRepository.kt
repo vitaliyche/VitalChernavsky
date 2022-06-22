@@ -10,13 +10,17 @@ import com.codeliner.vitalchernavsky.paging.GithubPagingSource
 import kotlinx.coroutines.flow.Flow
 
 class RetrofitRepository {
-    suspend fun getMovies(): GitHubSearch { //pageIndex: Int
+
+    suspend fun getMovies(): GitHubSearch {
         return RetrofitInstance.api.getMovieReview()
     }
 
     fun getPagingMoviesFlow(): Flow<PagingData<Item>> {
+
         return Pager(PagingConfig(pageSize = 20)) {
             GithubPagingSource(RetrofitInstance.api)
         }.flow
+
     }
+
 }
